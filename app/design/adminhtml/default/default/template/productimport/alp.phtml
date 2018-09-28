@@ -1,0 +1,14 @@
+<h1>Import product from alphabroder</h1>
+
+<form action="<?php echo $this->getUrl("*/*/import") ?>" method="POST" >
+<input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
+<button type="submit">Import</button>
+</form>
+
+<br/>
+<br/>
+
+<!-- form action="<?php echo $this->getUrl("*/*/importajax") ?>" method="POST" >
+<input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
+<button type="submit">Ajax Import</button>
+</form -->

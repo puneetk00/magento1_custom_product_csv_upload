@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <productimport_adminhtml_productimportbackend_index>
+	<reference name="content">
+	  <block type="productimport/adminhtml_productimportbackend" name="productimportbackend" template="productimport/productimportbackend.phtml"/>
+	</reference>
+  </productimport_adminhtml_productimportbackend_index>
+  <productimport_adminhtml_productimportbackend_importajax>
+	<reference name="content">
+	  <block type="productimport/adminhtml_productimportbackend" name="importajax" template="productimport/ajax_import.phtml"/>
+	</reference>
+  </productimport_adminhtml_productimportbackend_importajax>
+  
+  <productimport_adminhtml_alp_index>
+	<reference name="content">
+	  <block type="productimport/adminhtml_productimportbackend" name="alp_import_product" template="productimport/alp.phtml"/>
+	</reference>
+  </productimport_adminhtml_alp_index>
+  
+  <productimport_adminhtml_alp_importajax>
+	<reference name="content">
+	   <block type="productimport/adminhtml_productimportbackend" name="alp_importajax" template="productimport/alp_ajax_import.phtml"/>
+	</reference>
+  </productimport_adminhtml_alp_importajax>
+  
+</layout>

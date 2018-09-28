@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Synapse_Productimport>
+      <version>0.1.0</version>
+    </Synapse_Productimport>
+  </modules>
+  <global>
+    <helpers>
+      <productimport>
+        <class>Synapse_Productimport_Helper</class>
+      </productimport>
+    </helpers>
+	<blocks>
+	  <productimport>
+		<class>Synapse_Productimport_Block</class>
+	  </productimport>
+	</blocks>
+	<models>
+	  <productimport>
+		<class>Synapse_Productimport_Model</class>
+		<resourceModel>productimport_mysql4</resourceModel>
+	  </productimport>
+	</models>
+  </global>
+  <admin>
+	<routers>
+	  <productimport>
+	    <use>admin</use>
+		<args>
+		  <module>Synapse_Productimport</module>
+		  <frontName>admin_productimport</frontName>
+		</args>
+	  </productimport>
+	</routers>
+  </admin>
+  <adminhtml>
+	<menu>
+	  <synapsecustom module="productimport">
+		<title>Synapse Custom</title>
+		<sort_order>100</sort_order>
+		<children>
+		  <productimportbackend module="productimport">
+			<title>Import Product</title>
+			<sort_order>0</sort_order>
+			<action>admin_productimport/adminhtml_productimportbackend</action>
+		  </productimportbackend>
+		  <alp module="productimport">
+			<title>Alp Import Product</title>
+			<sort_order>0</sort_order>
+			<action>admin_productimport/adminhtml_alp</action>
+		  </alp>
+		  <t module="productimport">
+			<title>T</title>
+			<sort_order>0</sort_order>
+			<action>admin_productimport/adminhtml_t</action>
+		  </t>
+		</children>
+	  </synapsecustom>
+	</menu>
+	<acl>
+	  <resources>
+		<all>
+		  <title>Allow Everything</title>
+		</all>
+		<admin>
+		  <children>
+			<productimport translate="title" module="productimport">
+			  <title>Productimport</title>
+			  <sort_order>1000</sort_order>
+			  <children>
+		  <productimportbackend translate="title">
+			<title>Backend Page Title</title>
+		  </productimportbackend>
+			  </children>
+			</productimport>
+		  </children>
+		</admin>
+	  </resources>
+	</acl>
+	<layout>
+	  <updates>
+		<productimport>
+		  <file>productimport.xml</file>
+		</productimport>
+	  </updates>
+	</layout>
+  </adminhtml>
+	<crontab>
+	<jobs>            
+		<productimport_stockupdate>
+			<schedule><cron_expr>* 23 * * *</cron_expr></schedule>
+			<run><model>productimport/cron::stockupdate</model></run>
+		</productimport_stockupdate>
+		<productimport_priceupdate>
+			<schedule><cron_expr>* 23 * * *</cron_expr></schedule>
+			<run><model>productimport/cron::priceupdate</model></run>
+		</productimport_priceupdate>
+	</jobs>
+	</crontab>
+</config> 

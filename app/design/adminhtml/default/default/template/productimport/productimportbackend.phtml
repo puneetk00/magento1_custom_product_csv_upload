@@ -1,0 +1,11 @@
+<h1>Import Products from CapWholesaller CSV.</h1>
+<pre>CSV Path : <?php echo Mage::getBaseDir('base') . DS ?>text.csv</pre>
+<form action="<?php echo $this->getUrl("*/*/import") ?>" method="POST" >
+<input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
+<button type="submit">Import</button>
+</form>
+
+<!-- form action="<?php echo $this->getUrl("*/*/importajax") ?>" method="POST" >
+<input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
+<button type="submit">Ajax Import</button>
+</form -->
